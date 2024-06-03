@@ -5600,10 +5600,6 @@ label {
   }
 }
 
-.choose-content-2 {
-  max-width: 458px;
-}
-
 @media only screen and (max-width: 1200px) {
   .choose-content-2 {
     max-width: 100%;
@@ -11417,8 +11413,16 @@ label {
 
 @media (max-width: 768px) {
   .carousel-caption p {
-    font-size: 5px;
+    font-size: 6px;
     /* Make font size smaller on mobile */
     line-height: 1.2;
   }
 }
+
+ /* Set minimum width for table on small screens */
+ @media (max-width: 768px) {
+   .table-auto {
+     min-width: 1000px;
+     /* Adjust as needed */
+   }
+ }
