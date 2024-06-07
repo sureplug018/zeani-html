@@ -390,20 +390,17 @@
   AOS.init();
 })(jQuery);
 
-document.addEventListener("DOMContentLoaded", function () {
-  const choiceOfQualification = document.getElementById(
-    "choiceOfQualification"
-  );
-  const trade = document.getElementById("trade");
-  const price = document.getElementById("price");
-
-  choiceOfQualification.addEventListener("change", function () {
-    let selectedQualification = choiceOfQualification.value;
+document
+  .getElementById("choiceOfQualification")
+  .addEventListener("change", function () {
+    var tradeSelect = document.getElementById("trade");
+    var selectedQualification = this.value;
 
     // Update trade options based on selected qualification
-    trade.innerHTML = ""; // Clear existing options
+
     if (selectedQualification === "ANTC/ANBC") {
-      trade.innerHTML = `
+      tradeSelect.outerHTML = `
+          <select id="trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select " aria-label="Small select example">
           <option selected>ANTC/ANBC Trades</option>
           <option value="Agricultural Equipment and Implement Mechanic Works">Agricultural Equipment and Implement Mechanic Works</option>
           <option value="Motor Vehicle Mechanics Work">Motor Vehicle Mechanics Work</option>
@@ -438,10 +435,12 @@ document.addEventListener("DOMContentLoaded", function () {
           <option value="Financial Management">Financial Management</option>
           <option value="Salesmanship">Salesmanship</option>
           <option value="Tourism">Tourism</option>
+          </select>
         `;
       price.value = "10000"; // Update price for this qualification
     } else if (selectedQualification === "NTC/NBC") {
-      trade.innerHTML = `
+      tradeSelect.outerHTML = `
+          <select id="trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select " aria-label="Small select example">
           <option selected>NTC/NBC Trades</option>
           <option value="Agricultural Equipment and Implement Mechanic Works">Agricultural Equipment and Implement Mechanic Works</option>
           <option value="Motor Vehicle Mechanics Work">Motor Vehicle Mechanics Work</option>
@@ -476,16 +475,17 @@ document.addEventListener("DOMContentLoaded", function () {
           <option value="Financial Management">Financial Management</option>
           <option value="Salesmanship">Salesmanship</option>
           <option value="Tourism">Tourism</option>
+          </select>
         `;
       price.value = "5000"; // Update price for this qualification
     } else if (selectedQualification === "MTC") {
-      trade.outerHTML = `
-      <label for="trade">NB: minimum of one trade and maximum of three related trades. Check the admission page for trade list</label>
+      tradeSelect.outerHTML = `
           <input id="trade" type="text" placeholder="Enter Trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select">
         `;
       price.value = "5000"; // Update price for this qualification
     } else if (selectedQualification === "WEAC") {
-      trade.innerHTML = `
+      tradeSelect.outerHTML = `
+            <select id="trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select " aria-label="Small select example">
             <option selected>WAEC Trade</option>
             <option value="Electrical Installations and Maintenance">Electrical Installations and Maintenance</option>
             <option value="Winding of Electrical Machines">Winding of Electrical Machines</option>
@@ -514,11 +514,13 @@ document.addEventListener("DOMContentLoaded", function () {
             <option value="Tractor operator">Tractor operator</option>
             <option value="Tractor mechanic">Tractor mechanic</option>
             <option value="Birds and Hatchery craft">Birds and Hatchery craft</option>
+            </select>
         `;
       price.value = "5000"; // Update price for this qualification
     } else if (selectedQualification.startsWith("NSQ Level 1")) {
-      trade.innerHTML = `
-          <option selected>NSQ Level 1 Trade</option>
+      tradeSelect.outerHTML = `
+                <select id="trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select " aria-label="Small select example">
+                <option selected>NSQ Level 1 Trade</option>
                 <option value="Tricycle assembling, repair and Maintenance">Tricycle assembling, repair and Maintenance</option>
                 <option value="Electrical Installations and Maintenance">Electrical Installations and Maintenance</option>
                 <option value="Winding of Electrical Machines">Winding of Electrical Machines</option>
@@ -559,11 +561,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 <option value="Purchasing and Supply">Purchasing and Supply</option>
                 <option value="Store Keeping">Store Keeping</option>
                 <option value="Agro-food processing practice">Agro-food processing practice</option>
+                </select>
         `;
       price.value = "1000"; // Update price for NSQ qualifications
     } else if (selectedQualification.startsWith("NSQ Level 2")) {
-      trade.innerHTML = `
-          <option selected>NSQ Level 2 Trade</option>
+      tradeSelect.outerHTML = `
+                <select id="trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select " aria-label="Small select example">
+                <option selected>NSQ Level 2 Trade</option>
                 <option value="Tricycle assembling, repair and Maintenance">Tricycle assembling, repair and Maintenance</option>
                 <option value="Electrical Installations and Maintenance">Electrical Installations and Maintenance</option>
                 <option value="Winding of Electrical Machines">Winding of Electrical Machines</option>
@@ -604,11 +608,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 <option value="Purchasing and Supply">Purchasing and Supply</option>
                 <option value="Store Keeping">Store Keeping</option>
                 <option value="Agro-food processing practice">Agro-food processing practice</option>
+                </select>
         `;
       price.value = "3000"; // Update price for NSQ qualifications
     } else if (selectedQualification.startsWith("NSQ Level 3")) {
-      trade.innerHTML = `
-          <option selected>NSQ Level 3 Trade</option>
+      tradeSelect.outerHTML = `
+                <select id="trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select " aria-label="Small select example">
+                <option selected>NSQ Level 3 Trade</option>
                 <option value="Tricycle assembling, repair and Maintenance">Tricycle assembling, repair and Maintenance</option>
                 <option value="Electrical Installations and Maintenance">Electrical Installations and Maintenance</option>
                 <option value="Winding of Electrical Machines">Winding of Electrical Machines</option>
@@ -649,11 +655,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 <option value="Purchasing and Supply">Purchasing and Supply</option>
                 <option value="Store Keeping">Store Keeping</option>
                 <option value="Agro-food processing practice">Agro-food processing practice</option>
+                </select>
         `;
       price.value = "5000"; // Update price for NSQ qualifications
     } else if (selectedQualification.startsWith("NSQ Level 4")) {
-      trade.innerHTML = `
-          <option selected>NSQ Level 4 Trade</option>
+      tradeSelect.outerHTML = `
+                <select id="trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select " aria-label="Small select example">
+                <option selected>NSQ Level 4 Trade</option>
                 <option value="Tricycle assembling, repair and Maintenance">Tricycle assembling, repair and Maintenance</option>
                 <option value="Electrical Installations and Maintenance">Electrical Installations and Maintenance</option>
                 <option value="Winding of Electrical Machines">Winding of Electrical Machines</option>
@@ -694,11 +702,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 <option value="Purchasing and Supply">Purchasing and Supply</option>
                 <option value="Store Keeping">Store Keeping</option>
                 <option value="Agro-food processing practice">Agro-food processing practice</option>
+                </select
         `;
       price.value = "10000"; // Update price for NSQ qualifications
     } else if (selectedQualification.startsWith("NSQ Level 5")) {
-      trade.innerHTML = `
-          <option selected>NSQ Level 5 Trade</option>
+      tradeSelect.outerHTML = `
+                <select id="trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select " aria-label="Small select example">
+                <option selected>NSQ Level 5 Trade</option>
                 <option value="Tricycle assembling, repair and Maintenance">Tricycle assembling, repair and Maintenance</option>
                 <option value="Electrical Installations and Maintenance">Electrical Installations and Maintenance</option>
                 <option value="Winding of Electrical Machines">Winding of Electrical Machines</option>
@@ -739,11 +749,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 <option value="Purchasing and Supply">Purchasing and Supply</option>
                 <option value="Store Keeping">Store Keeping</option>
                 <option value="Agro-food processing practice">Agro-food processing practice</option>
+                </select>
         `;
       price.value = "15000"; // Update price for NSQ qualifications
     } else if (selectedQualification.startsWith("NSQ Level 6")) {
-      trade.innerHTML = `
-          <option selected>NSQ Level 6 Trade</option>
+      tradeSelect.outerHTML = `
+                <select id="trade" style="border: none; background: #f7f7f7; color: #505050; font-size: 16px; font-weight: 400;" class="form-select " aria-label="Small select example">
+                <option selected>NSQ Level 6 Trade</option>
                 <option value="Tricycle assembling, repair and Maintenance">Tricycle assembling, repair and Maintenance</option>
                 <option value="Electrical Installations and Maintenance">Electrical Installations and Maintenance</option>
                 <option value="Winding of Electrical Machines">Winding of Electrical Machines</option>
@@ -784,8 +796,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <option value="Purchasing and Supply">Purchasing and Supply</option>
                 <option value="Store Keeping">Store Keeping</option>
                 <option value="Agro-food processing practice">Agro-food processing practice</option>
+                </select>
         `;
       price.value = "20000"; // Update price for NSQ qualifications
     }
   });
-});
