@@ -389,10 +389,10 @@
 
   AOS.init();
 })(jQuery);
+const choiceOfQualification = document.getElementById("choiceOfQualification");
 
-document
-  .getElementById("choiceOfQualification")
-  .addEventListener("change", function () {
+if (choiceOfQualification) {
+  choiceOfQualification.addEventListener("change", function () {
     var tradeSelect = document.getElementById("trade");
     var selectedQualification = this.value;
 
@@ -801,3 +801,31 @@ document
       price.value = "20000"; // Update price for NSQ qualifications
     }
   });
+}
+
+// Define the showOptions function outside the jobTypes if block
+function showOptions() {
+  var jobType = document.getElementById("jobType").value;
+  var scienceOptions = document.getElementById("scienceTeacherWrap");
+  var craftOptions = document.getElementById("craftTeacherWrap");
+
+  // Reset display of all options
+  scienceOptions.style.display = "none";
+  craftOptions.style.display = "none";
+
+  // Show options based on selected job type
+  if (jobType === "science") {
+    scienceOptions.style.display = "block";
+  } else if (jobType === "craft") {
+    craftOptions.style.display = "block";
+  }
+}
+
+// Select all elements with class 'jobApplication'
+const jobTypes = document.querySelector(".jobApplication");
+
+if(jobTypes){
+  // Add event listener to the job type select element
+  const jobTypeSelect = document.getElementById("jobType");
+  jobTypeSelect.addEventListener("change", showOptions);
+}
